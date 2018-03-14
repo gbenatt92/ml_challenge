@@ -68,7 +68,6 @@ def ndjson_line_to_parquet(line,writer,output_file_path,items=False):
     -------
     writer: {object}
         Pyarrow writer object to save a parquet file.
-    
     """
     json_l = json.loads(line)
     if items:

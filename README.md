@@ -11,6 +11,8 @@ This challenge documentation is divided in the following 4 parts
 * [Evaluation](docs/EVALUATION.md)
 * [API](docs/API.md)
 
+## Set up
+
 ## Train
 
 ## Deploy

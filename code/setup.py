@@ -3,11 +3,7 @@ from setuptools import setup, find_packages
 VERSION = "0.0.1"
 
 DEPENDENCIES = [
-    "Cython==0.27.2",
-    "scipy",
-    "pyarrow",
-    "pandas",
-    "implicit==0.2.7"
+    "numpy"
 ]
 
 setup(

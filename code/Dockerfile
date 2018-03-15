@@ -9,11 +9,6 @@ RUN set -eux; \
     apt-get install build-essential libssl-dev libffi-dev python3-dev -y
 
 
-RUN set -eux; \
-    pip3 install Cython==0.27.2; \
-    pip3 install scipy; \
-    pip3 install implicit==0.2.7
-
 ADD . /app
 
 RUN set -eux; \
@@ -21,5 +16,7 @@ RUN set -eux; \
     pip3 install .
 
 ENV PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
+
+ENV LD_LIBRARY_PATH=/usr/local/hadoop/lib/native/:$LD_LIBRARY_PATH
 
 ENTRYPOINT ["python3", "/app/main.py"]

@@ -8,7 +8,9 @@ def data_processing():
     """
     spark = SparkSession.builder.appName(
         name="data-ingestion"
-    ).getOrCreate()
+    ).config(
+        "spark.executor.memory", "2G"
+    ).config("spark.driver.memory", "10G").getOrCreate()
 
     views = spark.read.format("json").load("/data_proj/pdpviews.ndjson")
     transactions = spark.read.format("json").load(

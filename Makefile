@@ -23,4 +23,4 @@ download:
 
 data-ingestion:
 	set -eux; \
-	docker run -it -v `pwd`/data:/data_proj $(img_name):latest -d
+	docker run -it -v `pwd`/data:/data_proj  -v `pwd`/code:/app  $(img_name):latest -d

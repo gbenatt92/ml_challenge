@@ -5,7 +5,6 @@ VERSION = "0.0.1"
 DEPENDENCIES = [
     "Cython==0.27.2",
     "scipy",
-    "dask",
     "pyarrow",
     "pandas",
     "implicit==0.2.7"

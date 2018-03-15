@@ -1,15 +1,9 @@
 img_name := gbenatt92/ml-test
-tag_name := 0.0.1
 
 build:
 	set -eux; \
 	cd code/; \
 	docker build --network=host -t $(img_name):latest .
-
-build-realease:	
-	set -eux; \
-	cd code/; \
-	docker build --network=host -t $(img_name):$(tag_name) .
 
 download:
 	set -eux; \
@@ -23,8 +17,12 @@ download:
 
 data-ingestion:
 	set -eux; \
-	docker run -it -v `pwd`/data:/data_proj  -v `pwd`/code:/app  $(img_name):latest -d
+	docker run -it --rm -v `pwd`/data:/data_proj  -v `pwd`/code:/app  $(img_name):latest -d
 
 rec-train:
 	set -eux; \
-	docker run -it -v `pwd`/data:/data_proj  -v `pwd`/code:/app  $(img_name):latest -t
+	docker run -it --rm -v `pwd`/data:/data_proj  -v `pwd`/code:/app  $(img_name):latest -t
+
+rec-evaluate:
+	set -eux; \
+	docker run -it --rm -v `pwd`/data:/data_proj  -v `pwd`/code:/app  $(img_name):latest -t -e
